@@ -34,3 +34,9 @@ footprints through this wonderful application. On the way he will perform magic 
 perform miracles that would shatter the mind of a mere mortal. Best not to mess with this file, or he will be
 very upset!
  */
+
+$request = \Kernel\Request::extract();
+
+/**
+ * TODO Generate response
+ */
