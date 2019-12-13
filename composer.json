@@ -1,0 +1,13 @@
+{
+    "name": "rien/frappucino",
+    "description": "Lightweight PHP framework tailored to my personal needs",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rien Bijl",
+            "email": "helloitsrien@gmail.com"
+        }
+    ],
+    "require": {}
+}
