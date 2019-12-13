@@ -36,7 +36,8 @@ you should not take him as a conjurer performing cheap tricks. Pass and do not l
 will feel his wrath if you do!
  */
 
-define("FRAPPUCINO_START", microtime(true));
+require __DIR__ .'/../boot.php';
+
 $request = \Kernel\Request::extract();
 
 /**
