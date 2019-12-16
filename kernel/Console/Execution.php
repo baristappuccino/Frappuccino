@@ -31,9 +31,9 @@ class Execution
      */
     private function match($args)
     {
-        foreach($this->matchers as $matcherkey => $matcherval)
+        foreach($this->matchers as $matcherKey => $matcherVal)
         {
-            $matcher = explode("|", $matcherkey);
+            $matcher = explode("|", $matcherKey);
             $count = 0;
             $match = true;
             foreach($matcher as $matchPiece)
@@ -46,7 +46,7 @@ class Execution
             }
             if($match)
             {
-                $this->invoke($matcherval, $args);
+                $this->invoke($matcherVal, $args);
                 break;
             }
         }
@@ -60,7 +60,7 @@ class Execution
      */
     private function invoke($class, $args)
     {
-        // TODO Make command invoker
+        ($class)::invoke($args);
     }
 
     /**
