@@ -58,7 +58,7 @@ class Execution
      * @param $class
      * @param $args
      */
-    private function invoke(String $class, array $args) : void
+    private function invoke(string $class, array $args) : void
     {
         ($class)::invoke($args);
     }

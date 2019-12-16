@@ -21,7 +21,7 @@ abstract class Command {
      * Print a message to the console
      * @param $message
      */
-    public function msg(String $message) : void
+    public function msg(string $message) : void
     {
         echo $message .PHP_EOL;
     }
