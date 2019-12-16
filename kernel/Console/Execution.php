@@ -47,7 +47,7 @@ class Execution
             if($match)
             {
                 $this->invoke($matcherval, $args);
-                continue;
+                break;
             }
         }
     }
