@@ -6,8 +6,9 @@ use Kernel\Console\Commands\Brew\Provider;
 
 class KernelCommandRegistry {
 
-    static $registry = [
-        ["brew", "provider", "{var}"] => Provider::class
+    public static $registry = [
+        "brew|provider_beta|{var}" => Provider::class,
+        "brew|provider|{var}" => Provider::class
     ];
 
 }

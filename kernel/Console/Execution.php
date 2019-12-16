@@ -18,21 +18,39 @@ class Execution
      */
     public function __construct($args)
     {
-
-        echo 'Oh no! You forgot to put some beans in the machine. Next time, try it with arguments';
-exit;
         $args ??= [];
 
-        $matchers = $this->getMatchers();
-        $this->match(reset(array_pop(array_reverse($args))));
+        $this->matchers = $this->getMatchers();
+        array_shift($args);
+        $this->match($args);
     }
 
     private function match($args)
     {
-        foreach($args as $givenArgument)
+        foreach($this->matchers as $matcherkey => $matcherval)
         {
-
+            $matcher = explode("|", $matcherkey);
+            $count = 0;
+            $match = true;
+            foreach($matcher as $matchPiece)
+            {
+                if(!(array_key_exists($count, $args) && ($args[$count] === $matchPiece || $matchPiece === "{var}")))
+                {
+                    $match = false;
+                }
+                $count++;
+            }
+            if($match)
+            {
+                $this->invoke($matcherval, $args);
+                continue;
+            }
         }
+    }
+
+    private function invoke($class, $args)
+    {
+
     }
 
     /**
