@@ -29,7 +29,7 @@ class Execution
      * Match set of arguments to command
      * @param $args
      */
-    private function match($args)
+    private function match(array $args) : void
     {
         foreach($this->matchers as $matcherKey => $matcherVal)
         {
@@ -58,7 +58,7 @@ class Execution
      * @param $class
      * @param $args
      */
-    private function invoke($class, $args)
+    private function invoke(String $class, array $args) : void
     {
         ($class)::invoke($args);
     }
@@ -67,7 +67,7 @@ class Execution
      * Get all the appropriate matchers
      * @return array
      */
-    private function getMatchers()
+    private function getMatchers() : array
     {
         return $this->matchers ?? array_merge(KernelCommandRegistry::$registry, CommandRegistry::$registry);
     }

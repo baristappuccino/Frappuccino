@@ -9,7 +9,7 @@ class Provider extends Command {
     /**
      * @inheritDoc
      */
-    public function run($args)
+    public function run(array $args) : void
     {
         parent::msg("Made provider " .$args[2]);
     }
@@ -17,7 +17,7 @@ class Provider extends Command {
     /**
      * @inheritDoc
      */
-    public static function invoke($args)
+    public static function invoke(array $args) : void
     {
         (new self)->run($args);
     }
