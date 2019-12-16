@@ -25,6 +25,10 @@ class Execution
         $this->match($args);
     }
 
+    /**
+     * Match set of arguments to command
+     * @param $args
+     */
     private function match($args)
     {
         foreach($this->matchers as $matcherkey => $matcherval)
@@ -48,9 +52,15 @@ class Execution
         }
     }
 
+    /**
+     * Invoke new command
+     *
+     * @param $class
+     * @param $args
+     */
     private function invoke($class, $args)
     {
-
+        // TODO Make command invoker
     }
 
     /**
