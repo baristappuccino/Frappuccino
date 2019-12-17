@@ -41,22 +41,13 @@ class Provider extends Command {
 
 namespace App\Providers;
 
-class $name {
+use Kernel\Base\Provider;
 
-    private function register()
+class $name extends Provider {
+
+    public function register()
     {
         // Register your data
-    }
-
-    static \$boot = false;
-
-    public static function boot()
-    {
-        if(!self::\$boot)
-        {
-            self::\$boot = true;
-            (new self())->register();
-        }
     }
 
 }
