@@ -33,5 +33,5 @@ snd   ||   '---'    '.___>
 This is Gimli. Change this file, and he will split your skull with his axe!
  */
 
-define("FRAPPUCINO_START", microtime(true));
+define("FRAPPUCCINO_START", microtime(true));
 require __DIR__ .'/vendor/autoload.php';
