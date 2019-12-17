@@ -38,8 +38,9 @@ class Execution
             $match = true;
             foreach($matcher as $matchPiece)
             {
-                if(!(array_key_exists($count, $args) && ($args[$count] === $matchPiece || $matchPiece === "{var}")))
-                {
+                if(!(array_key_exists($count, $args)
+                    && ($args[$count] === $matchPiece || $matchPiece === "{var}"))
+                ) {
                     $match = false;
                 }
                 $count++;
