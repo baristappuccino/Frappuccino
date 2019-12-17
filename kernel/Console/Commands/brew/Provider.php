@@ -24,7 +24,7 @@ class Provider extends Command {
                 $file = fopen($path, "w") or parent::warn("Cannot generate provider, try chmod") and exit;
                 fwrite($file, $this->genContent($provider)) or parent::warn("Could not supply content, try chmod") and exit;
                 fclose($file) or parent::warn("Could not close file link") and exit;
-                parent::msg("Successfully made " .$provider . ' at ' . $path);
+                parent::msg("Successfully made " .$provider . ' at ' . realpath($path));
             }
         }
     }
