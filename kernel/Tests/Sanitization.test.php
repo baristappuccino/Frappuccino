@@ -9,14 +9,14 @@ use function Kernel\Util\Sanitize\quotes;
 class SanatizationTest extends TestCase
 {
 
-    public function testAlphanumericalSerialization()
+    public function testAlphanumericalSanitization()
     {
         $this->assertEquals(
             "a", alphanum("a@")
         );
     }
 
-    public function testQuotedSerialization()
+    public function testQuotedSanitization()
     {
         $this->assertEquals(
             "&quot;@&lt;&gt;", quotes("\"@<>")
