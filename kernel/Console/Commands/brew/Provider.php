@@ -3,6 +3,7 @@
 namespace Kernel\Console\Commands\Brew;
 
 use Kernel\Console\Command;
+use function Kernel\Util\Sanitize\alphanum;
 
 class Provider extends Command {
 
@@ -15,7 +16,7 @@ class Provider extends Command {
         {
             parent::error("You did not properly specify a provider-name");
         } else {
-            $provider = $args[2];
+            $provider = alphanum($args[2]);
             $path = __DIR__ . '/../../../../app/Providers/' .$provider .'.php';
             if(file_exists($path))
             {
