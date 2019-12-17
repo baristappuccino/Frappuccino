@@ -25,4 +25,18 @@ abstract class Command {
     {
         echo $message .PHP_EOL;
     }
+
+    /**
+     * Print an error to the console
+     * @param string $message
+     */
+    public function error(string $message) : void
+    {
+        echo 'Error: ' .$message .PHP_EOL;
+    }
+
+    public function warn(string $message) : void
+    {
+        echo 'Warning: ' .$message .PHP_EOL;
+    }
 }

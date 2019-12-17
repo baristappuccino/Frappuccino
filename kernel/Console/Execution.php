@@ -48,6 +48,8 @@ class Execution
             {
                 $this->invoke($matcherVal, $args);
                 break;
+            } else {
+                echo "Error: This is not a recognized command!";
             }
         }
     }
