@@ -2,16 +2,16 @@
 
 namespace Kernel\Base;
 
-class Provider {
+class Provider
+{
 
-    static $boot = false;
+    private static $boot = false;
 
     public static function boot()
     {
-        if(!self::$boot)
-        {
+        if (!self::$boot) {
             self::$boot = true;
-            (new static)->register();
+            (new static())->register();
         }
     }
 

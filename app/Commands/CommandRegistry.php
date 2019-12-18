@@ -2,10 +2,10 @@
 
 namespace App\Commands;
 
+class CommandRegistry
+{
 
-class CommandRegistry {
-
-    static $registry = [
+    public static $registry = [
         // Register your commands
     ];
 

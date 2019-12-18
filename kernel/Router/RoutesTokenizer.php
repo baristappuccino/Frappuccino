@@ -11,7 +11,7 @@ class RoutesTokenizer
         $lexerOutput = $this->interpret($tokens);
     }
 
-    private function interpret(?array $tokens) : TokenLexer
+    private function interpret(?array $tokens): TokenLexer
     {
         return new TokenLexer($tokens);
     }

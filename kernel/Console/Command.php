@@ -9,34 +9,34 @@ abstract class Command {
      * @param $args
      * @return mixed
      */
-    public abstract function run(array $args) : void;
+    abstract public function run(array $args): void;
 
     /**
      * Invoke the command.
      * @param $args
      */
-    public abstract static function invoke(array $args) : void;
+    abstract public static function invoke(array $args): void;
 
     /**
      * Print a message to the console
      * @param $message
      */
-    public function msg(string $message) : void
+    public function msg(string $message): void
     {
-        echo $message .PHP_EOL;
+        echo $message . PHP_EOL;
     }
 
     /**
      * Print an error to the console
      * @param string $message
      */
-    public function error(string $message) : void
+    public function error(string $message): void
     {
-        echo 'Error: ' .$message .PHP_EOL;
+        echo 'Error: ' . $message . PHP_EOL;
     }
 
-    public function warn(string $message) : void
+    public function warn(string $message): void
     {
-        echo 'Warning: ' .$message .PHP_EOL;
+        echo 'Warning: ' . $message . PHP_EOL;
     }
 }

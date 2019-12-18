@@ -29,24 +29,19 @@ class Execution
      * Match set of arguments to command
      * @param $args
      */
-    private function match(array $args) : void
+    private function match(array $args): void
     {
-        foreach($this->matchers as $matcherKey => $matcherVal)
-        {
+        foreach ($this->matchers as $matcherKey => $matcherVal) {
             $matcher = explode("|", $matcherKey);
             $count = 0;
             $match = true;
-            foreach($matcher as $matchPiece)
-            {
-                if(!(array_key_exists($count, $args)
-                    && ($args[$count] === $matchPiece || $matchPiece === "{var}"))
-                ) {
+            foreach ($matcher as $matchPiece) {
+                if (!(array_key_exists($count, $args) && ($args[$count] === $matchPiece || $matchPiece === "{var}"))) {
                     $match = false;
                 }
                 $count++;
             }
-            if($match)
-            {
+            if ($match) {
                 $this->invoke($matcherVal, $args);
                 break;
             } else {
@@ -61,7 +56,7 @@ class Execution
      * @param $class
      * @param $args
      */
-    private function invoke(string $class, array $args) : void
+    private function invoke(string $class, array $args): void
     {
         ($class)::invoke($args);
     }
@@ -70,7 +65,7 @@ class Execution
      * Get all the appropriate matchers
      * @return array
      */
-    private function getMatchers() : array
+    private function getMatchers(): array
     {
         return $this->matchers ?? array_merge(KernelCommandRegistry::$registry, CommandRegistry::$registry);
     }

@@ -12,14 +12,16 @@ class SanatizationTest extends TestCase
     public function testAlphanumericalSanitization()
     {
         $this->assertEquals(
-            "a", alphanum("a@")
+            "a",
+            alphanum("a@")
         );
     }
 
     public function testQuotedSanitization()
     {
         $this->assertEquals(
-            "&quot;@&lt;&gt;", quotes("\"@<>")
+            "&quot;@&lt;&gt;",
+            quotes("\"@<>")
         );
     }
 

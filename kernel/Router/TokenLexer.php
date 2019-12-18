@@ -17,20 +17,25 @@ class TokenLexer
     private int $stage = 0;
     private int $whitelineCounter = 0;
 
+    /**
+     * Interpret tokens
+     */
     private function interpret()
     {
-        foreach($this->tokens ?? array() as $token)
-        {
-            if($this->validateToken($token))
-            {
-                if($this->declaresFunction($token))
-                {
+        foreach ($this->tokens ?? [] as $token) {
+            if ($this->validateToken($token)) {
+                if ($this->declaresFunction($token)) {
                     // TODO detect function namespacing and path for routing
                 }
             }
         }
     }
 
+    /**
+     * @param array|null $token
+     *
+     * @return bool
+     */
     private function validateToken(?array $token)
     {
         return $token !== null && is_array($token) && isset($token[1]);
