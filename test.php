@@ -14,9 +14,17 @@ class Controller {
     Test
     */
     /**
-    @route get /
+    @Route GET /
     */
     public function index()
+    {
+        
+    }
+    
+        /**
+    @Route POST /info
+    */
+    public function info()
     {
         
     }

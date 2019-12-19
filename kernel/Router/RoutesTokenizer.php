@@ -9,6 +9,8 @@ class RoutesTokenizer
     {
         $tokens = token_get_all($source);
         $lexerOutput = $this->interpret($tokens);
+        echo "Detected these routes: <hr>";
+        echo (json_encode($lexerOutput->getResults(), JSON_PRETTY_PRINT));
     }
 
     private function interpret(?array $tokens): TokenLexer

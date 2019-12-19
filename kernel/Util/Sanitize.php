@@ -7,7 +7,8 @@ namespace Kernel\Util\Sanitize;
  * @param string $string
  * @return string
  */
-function alphanum(string $string): string {
+function alphanum(string $string): string
+{
     return preg_replace("/[^a-zA-Z0-9]+/", "", $string);
 }
 
@@ -16,6 +17,7 @@ function alphanum(string $string): string {
  * @param string $string
  * @return string
  */
-function quotes(string $string): string {
+function quotes(string $string): string
+{
     return htmlspecialchars($string, ENT_QUOTES);
 }
