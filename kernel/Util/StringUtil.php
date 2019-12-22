@@ -26,8 +26,8 @@ class StringUtil
     public static function endsWith($haystack, $needle): bool
     {
         $length = strlen($needle);
-        if ($length == 0) {
-            return true;
+        if ($length === 0) {
+            return false;
         }
 
         return (substr($haystack, -$length) === $needle);

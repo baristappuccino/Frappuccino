@@ -27,7 +27,7 @@ class RouteCompiler
      * Run the tokenizer and store the routes
      * @param string $fileToScan
      */
-    private function runTokenizer(string $fileToScan)
+    private function runTokenizer(string $fileToScan): void
     {
         $path = realpath(self::BASE_DIR . '/' . $fileToScan);
         $file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $fileToScan);;
