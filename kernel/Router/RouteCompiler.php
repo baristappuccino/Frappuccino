@@ -23,7 +23,10 @@ class RouteCompiler
         }
     }
 
-
+    /**
+     * Run the tokenizer and store the routes
+     * @param string $fileToScan
+     */
     private function runTokenizer(string $fileToScan)
     {
         $path = realpath(self::BASE_DIR . '/' . $fileToScan);
