@@ -27,7 +27,7 @@ class StringUtil
     {
         $length = strlen($needle);
         if ($length === 0) {
-            return false;
+            return true;
         }
 
         return (substr($haystack, -$length) === $needle);
