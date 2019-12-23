@@ -6,14 +6,14 @@ class PageController
 {
 
     /**
-    @Route GET /page/{:i}
+     * @Route GET /page/{:i}
      */
     public function index()
     {
     }
 
     /**
-    @Route POST /info
+     * @Route POST /page/info
      */
     public function info()
     {

@@ -3,6 +3,7 @@
 namespace Kernel\Router;
 
 use Kernel\Exceptions\LexerException;
+use Kernel\Util\StringUtil;
 use Kernel\Util\Validator;
 
 class TokenLexer
@@ -10,8 +11,14 @@ class TokenLexer
 
     private ?array $tokens;
     private array $namespace = [];
+    private string $prefix = "";
     private array $results = [];
 
+    /**
+     * TokenLexer constructor.
+     * @param array|null $tokens
+     * @throws \Exception
+     */
     public function __construct(?array $tokens)
     {
         $this->tokens = $tokens;
@@ -56,11 +63,21 @@ class TokenLexer
         if ($token[0] === T_NAMESPACE && $this->namespace !== null) {
             $this->namespace = $this->deriveNamespace($count);
         }
+
         if ($token[0] === T_DOC_COMMENT) {
+            if ($this->prefix === "") {
+                $this->prefix = $this->getPrefixDeclaration($token);
+            }
+
             $route = $this->getRouteDeclaration($token);
+
+            if ($route === null) {
+                return;
+            }
+
             $function = $this->getFirstFunction($count);
             $this->results[] = [
-                "route" => $route,
+                "http" => $route,
                 "namespace" => implode("\\", $this->namespace),
                 "function" => $function
             ];
@@ -79,12 +96,12 @@ class TokenLexer
 
         foreach ($lines as $line) {
             $line = explode(" ", trim($line));
-            if ($line[0] === "@Route") {
-                if (($linecount = count($line)) === 3) {
-                    if (Validator::isHttpMethod($line[1])) {
-                        return [$line[1], $line[2]];
+            if ($line[0] === "*" && $line[1] === "@Route") {
+                if (($linecount = count($line)) === 4) {
+                    if (Validator::isHttpMethod($line[2])) {
+                        return ["method" => $line[2], "route" => $this->prefix . $line[3]];
                     } else {
-                        throw new LexerException($line[1] . " is not an HTTP method, allowed: GET, POST, DELETE, PUT");
+                        throw new LexerException($line[2] . " is not an HTTP method, allowed: GET, POST, DELETE, PUT");
                     }
                 } else {
                     throw new LexerException("Expected 2 arguments for @Route annotation, found " . $linecount, $token);
@@ -92,6 +109,29 @@ class TokenLexer
             }
         }
         return null;
+    }
+
+    /**
+     * Get a new prefix declaration
+     * @param array $token
+     * @return array|null
+     * @throws LexerException
+     */
+    private function getPrefixDeclaration(array $token): string
+    {
+        $lines = explode("\n", $token[1]);
+
+        foreach ($lines as $line) {
+            $line = explode(" ", trim($line));
+            if ($line[0] === "*" && $line[1] === "@Prefix") {
+                if (($linecount = count($line)) === 3) {
+                    return '/' . $line[2];
+                } else {
+                    throw new LexerException("Expected 1 argument for @Prefix annotation, found " . $linecount, $token);
+                }
+            }
+        }
+        return "";
     }
 
     /**
@@ -111,7 +151,8 @@ class TokenLexer
                 continue;
             }
 
-            if ($this->expect($token[0], [T_PUBLIC, T_FUNCTION, T_STRING, T_WHITESPACE, T_DOC_COMMENT])) {
+
+            if ($this->expect($token[0], [T_PUBLIC, T_FUNCTION, T_STRING, T_WHITESPACE, T_DOC_COMMENT], false)) {
                 if ($token[0] === T_STRING) {
                     return $token[1];
                     break;
