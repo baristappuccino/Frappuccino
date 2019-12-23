@@ -3,7 +3,6 @@
 namespace Kernel\Router;
 
 use Kernel\Exceptions\LexerException;
-use Kernel\Util\StringUtil;
 use Kernel\Util\Validator;
 
 class TokenLexer
