@@ -37,7 +37,7 @@ class RouteCompiler
         $file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $fileToScan);;
         $routes = (new RoutesTokenizer(file_get_contents($path)))->getResults();
         foreach ($routes as $route) {
-            $id = strtolower($route["http"]["method"] . ':' .$route["http"]["route"]);
+            $id = strtolower($route["http"]["method"] . ':' . $route["http"]["route"]);
 
             if (isset($this->routes[$id])) {
                 $sFile = $this->routes[$id]["file"];

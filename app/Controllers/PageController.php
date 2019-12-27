@@ -2,18 +2,25 @@
 
 namespace App\Controllers;
 
+/**
+ * Class PageController
+ * @package App\Controllers
+ * @Prefix page
+ * @Middleware Authentication
+ */
 class PageController
 {
 
     /**
-     * @Route GET /page/{:i}
+     * @Route GET /{:i}
      */
     public function index()
     {
     }
 
     /**
-     * @Route POST /page/info
+     * @Route POST /info
+     * @Middleware !CSRF Administrator
      */
     public function info()
     {

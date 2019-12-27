@@ -150,7 +150,6 @@ class TokenLexer
                 continue;
             }
 
-
             if ($this->expect($token[0], [T_PUBLIC, T_FUNCTION, T_STRING, T_WHITESPACE, T_DOC_COMMENT], false)) {
                 if ($token[0] === T_STRING) {
                     return $token[1];
