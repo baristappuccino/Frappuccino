@@ -49,7 +49,7 @@ class Execution
             }
         }
         if (!$masterMatch) {
-            echo 'Error: this is not a recognized command!';
+            echo "\033[1;37m" .  "\033[41m" . 'Error: ' . 'Command not found in registry' . "\033[0m" . PHP_EOL;
         }
     }
 

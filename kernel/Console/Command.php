@@ -33,11 +33,24 @@ abstract class Command
      */
     public function error(string $message): void
     {
-        echo 'Error: ' . $message . PHP_EOL;
+        echo "\033[1;37m" .  "\033[41m" . 'Error: ' . $message . "\033[0m" . PHP_EOL;
     }
 
+    /**
+     * Print a warning to the console
+     * @param string $message
+     */
     public function warn(string $message): void
     {
-        echo 'Warning: ' . $message . PHP_EOL;
+        echo "\033[1;37m" .  "\033[43m" . 'Warning: ' . $message . "\033[0m" . PHP_EOL;
+    }
+
+    /**
+     * Print a success message to the console
+     * @param string $message
+     */
+    public function success(string $message): void
+    {
+        echo "\033[1;37m" .  "\033[42m" . 'Success: ' . $message . "\033[0m" . PHP_EOL;
     }
 }

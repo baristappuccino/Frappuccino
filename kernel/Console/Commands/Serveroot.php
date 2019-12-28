@@ -20,7 +20,7 @@ class Serveroot extends Command
 
         chdir(__DIR__ . '/../../../');
 
-        $this->msg("Starting Frappuccino development server");
+        $this->success("Starting Frappuccino development server");
         $this->warn("Server is facing root directory");
         passthru(PHP_BINARY . " -S {$this->host} 2>&1");
     }

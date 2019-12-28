@@ -20,6 +20,5 @@ class KernelCommandRegistry
         // serve
         "serve" => Serve::class,
         "serve|{var}" => Serve::class,
-
     ];
 }
