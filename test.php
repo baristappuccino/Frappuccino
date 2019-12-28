@@ -2,7 +2,9 @@
 
 require 'boot.php';
 
+$stopwatch = new \Kernel\Util\Stopwatch();
 new \Kernel\Router\RouteCompiler();
+echo $stopwatch->stopAsMicro();
 
 //$var = <<<'EOT'
 //<?php

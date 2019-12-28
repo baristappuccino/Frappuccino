@@ -31,6 +31,7 @@ class Execution
      */
     private function match(array $args): void
     {
+        $masterMatch = false;
         foreach ($this->matchers as $matcherKey => $matcherVal) {
             $matcher = explode("|", $matcherKey);
             $count = 0;
@@ -42,11 +43,13 @@ class Execution
                 $count++;
             }
             if ($match) {
+                $masterMatch = true;
                 $this->invoke($matcherVal, $args);
                 break;
-            } else {
-                echo "Error: This is not a recognized command!";
             }
+        }
+        if (!$masterMatch) {
+            echo 'Error: this is not a recognized command!';
         }
     }
 

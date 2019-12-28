@@ -2,7 +2,8 @@
 
 namespace Kernel\Console;
 
-abstract class Command {
+abstract class Command
+{
 
     /**
      * Run te command
