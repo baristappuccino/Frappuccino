@@ -7,11 +7,11 @@ class StringUtil
 
     /**
      * Determine if a string starts with
-     * @param $haystack
-     * @param $needle
+     * @param string $haystack
+     * @param string $needle
      * @return bool
      */
-    public static function startsWith($haystack, $needle): bool
+    public static function startsWith(string $haystack, string $needle): bool
     {
         $length = strlen($needle);
         return (substr($haystack, 0, $length) === $needle);
@@ -19,11 +19,11 @@ class StringUtil
 
     /**
      * Determine if a string ends with
-     * @param $haystack
-     * @param $needle
+     * @param string $haystack
+     * @param string $needle
      * @return bool
      */
-    public static function endsWith($haystack, $needle): bool
+    public static function endsWith(string $haystack, string $needle): bool
     {
         $length = strlen($needle);
         if ($length === 0) {
