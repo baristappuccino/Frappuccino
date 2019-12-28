@@ -18,6 +18,10 @@ class Execution
      */
     public function __construct($args)
     {
+        if (php_sapi_name() === 'cli') {
+            set_exception_handler([$this, 'catchException']);
+        }
+
         $args ??= [];
 
         $this->matchers = $this->getMatchers();
@@ -71,6 +75,15 @@ class Execution
     private function getMatchers(): array
     {
         return $this->matchers ?? array_merge(KernelCommandRegistry::$registry, CommandRegistry::$registry);
+    }
+
+    /**
+     * Handle uncatched exceptions
+     * @param \Exception $ex
+     */
+    public function catchException(\Exception $ex): void
+    {
+        echo "\033[1;37m" .  "\033[44m" . $ex . "\033[0m" . PHP_EOL;
     }
 
 }
