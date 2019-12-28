@@ -20,8 +20,6 @@ class Serve extends Command
 
         chdir(__DIR__ . '/../../../public/');
 
-        throw new \Exception("Error");
-
         $this->success("Starting Frappuccino development server");
         passthru(PHP_BINARY . " -S {$this->host} 2>&1");
     }
