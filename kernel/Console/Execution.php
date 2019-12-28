@@ -3,6 +3,7 @@
 namespace Kernel\Console;
 
 use App\Commands\CommandRegistry;
+use Kernel\Util\ANSIColor;
 
 class Execution
 {
@@ -83,7 +84,8 @@ class Execution
      */
     public function catchException(\Exception $ex): void
     {
-        echo "\033[1;37m" .  "\033[44m" . $ex . "\033[0m" . PHP_EOL;
+        echo ANSIColor::parse($ex, ANSIColor::FG_WHITE, ANSIColor::BG_CYAN) . PHP_EOL;
+//        echo "\033[1;37m" .  "\033[44m" . $ex . "\033[0m" . PHP_EOL;
     }
 
 }

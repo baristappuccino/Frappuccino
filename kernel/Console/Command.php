@@ -2,6 +2,8 @@
 
 namespace Kernel\Console;
 
+use Kernel\Util\ANSIColor;
+
 abstract class Command
 {
 
@@ -33,7 +35,7 @@ abstract class Command
      */
     public function error(string $message): void
     {
-        echo "\033[1;37m" .  "\033[41m" . 'Error: ' . $message . "\033[0m" . PHP_EOL;
+        echo ANSIColor::parse("Error: " . $message, ANSIColor::FG_WHITE, ANSIColor::BG_RED) . PHP_EOL;
     }
 
     /**
@@ -42,7 +44,7 @@ abstract class Command
      */
     public function warn(string $message): void
     {
-        echo "\033[1;37m" .  "\033[43m" . 'Warning: ' . $message . "\033[0m" . PHP_EOL;
+        echo ANSIColor::parse("Warning: " . $message, ANSIColor::FG_WHITE, ANSIColor::BG_YELLOW) . PHP_EOL;
     }
 
     /**
@@ -51,6 +53,6 @@ abstract class Command
      */
     public function success(string $message): void
     {
-        echo "\033[1;37m" .  "\033[42m" . 'Success: ' . $message . "\033[0m" . PHP_EOL;
+        echo ANSIColor::parse("Success: " . $message, ANSIColor::FG_WHITE, ANSIColor::BG_GREEN) . PHP_EOL;
     }
 }
