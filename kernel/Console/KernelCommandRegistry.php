@@ -9,7 +9,7 @@ use Kernel\Console\Commands\Serveroot;
 class KernelCommandRegistry
 {
 
-    public static $registry = [
+    public static array $registry = [
         // brew provider
         "brew|provider|{var}" => Provider::class,
 

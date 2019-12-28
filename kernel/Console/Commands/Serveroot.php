@@ -15,7 +15,7 @@ class Serveroot extends Command
     public function run(array $args): void
     {
         if (isset($args[1])) {
-            $this->host = $args[1];
+            $this->host = escapeshellarg($args[1]);
         }
 
         chdir(__DIR__ . '/../../../');
