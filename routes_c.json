@@ -1,0 +1,42 @@
+{
+    "get:\/page\/[i:id]\/": {
+        "http": {
+            "method": "GET",
+            "route": "\/page\/[i:id]\/"
+        },
+        "namespace": "App\\Controllers",
+        "function": "index",
+        "file": "PageController",
+        "regex": "`^\/page(?:\/(?P<id>[0-9]++))\/$`u"
+    },
+    "post:\/page\/info": {
+        "http": {
+            "method": "POST",
+            "route": "\/page\/info"
+        },
+        "namespace": "App\\Controllers",
+        "function": "info",
+        "file": "PageController",
+        "regex": "`^\/page\/info$`u"
+    },
+    "get:\/user\/": {
+        "http": {
+            "method": "GET",
+            "route": "\/user\/"
+        },
+        "namespace": "App\\Controllers",
+        "function": "index",
+        "file": "UserController",
+        "regex": "`^\/user\/$`u"
+    },
+    "post:\/user\/info": {
+        "http": {
+            "method": "POST",
+            "route": "\/user\/info"
+        },
+        "namespace": "App\\Controllers",
+        "function": "info",
+        "file": "UserController",
+        "regex": "`^\/user\/info$`u"
+    }
+}

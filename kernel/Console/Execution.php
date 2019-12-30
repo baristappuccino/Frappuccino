@@ -80,12 +80,10 @@ class Execution
 
     /**
      * Handle uncatched exceptions
-     * @param \Exception $ex
+     * @param $ex
      */
-    public function catchException(\Exception $ex): void
+    public function catchException($ex): void
     {
         echo ANSIColor::parse($ex, ANSIColor::FG_WHITE, ANSIColor::BG_CYAN) . PHP_EOL;
-//        echo "\033[1;37m" .  "\033[44m" . $ex . "\033[0m" . PHP_EOL;
     }
-
 }

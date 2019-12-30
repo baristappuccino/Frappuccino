@@ -12,7 +12,7 @@ class PageController
 {
 
     /**
-     * @Route GET /{:i}
+     * @Route GET /[i:id]/
      */
     public function index()
     {
