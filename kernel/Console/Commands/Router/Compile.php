@@ -4,6 +4,7 @@ namespace Kernel\Console\Commands\Router;
 
 use Kernel\Console\Command;
 use Kernel\Router\RouteCompiler;
+use Kernel\Util\ANSIColor;
 use Kernel\Util\Stopwatch;
 
 class Compile extends Command
@@ -18,13 +19,23 @@ class Compile extends Command
     {
         $stopwatch = new Stopwatch();
 
-        $routeCompiler = new RouteCompiler();
-        $routes = $routeCompiler->getRoutes();
-        $routesAsJson = json_encode($routes, JSON_PRETTY_PRINT);
+        $routeCompiler = null;
 
-        file_put_contents(self::ROUTE_LOCATION, $routesAsJson, LOCK_EX);
+        try {
+            $routeCompiler = new RouteCompiler();
+        } catch (\Exception $ex) {
+            $this->error('Error whilst trying to compile routes after ' . $stopwatch->stopAsMilli() . 'ms');
+            $this->msg(ANSIColor::parse($ex, ANSIColor::FG_WHITE, ANSIColor::BG_CYAN));
+        } finally {
+            if ($routeCompiler !== null && ($routes = $routeCompiler->getRoutes()) !== null) {
+                $routes = $routes ?? [];
+                $routesAsJson = json_encode($routes, JSON_PRETTY_PRINT);
 
-        $this->success("Renewed route declarations in " . $stopwatch->stopAsMilli() . 'ms');
+                file_put_contents(self::ROUTE_LOCATION, $routesAsJson, LOCK_EX);
+
+                $this->success('Renewed route declarations in ' . $stopwatch->stopAsMilli() . 'ms');
+            }
+        }
     }
 
     /**
