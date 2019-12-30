@@ -41,7 +41,6 @@ class CompileWatch extends Command
      */
     public function getDirectoryChecksum(string $dir): string
     {
-
         $filemd5s = array();
         $d = dir($dir);
 
