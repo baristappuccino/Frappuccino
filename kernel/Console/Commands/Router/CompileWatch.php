@@ -45,7 +45,7 @@ class CompileWatch extends Command
         $d = dir($dir);
 
         while (false !== ($entry = $d->read())) {
-            if ($entry != '.' && $entry != '..') {
+            if ($entry !== '.' && $entry !== '..') {
                 if (is_dir($dir . '/' . $entry)) {
                     $filemd5s[] = $this->getDirectoryChecksum($dir . '/' . $entry);
                 } else {
