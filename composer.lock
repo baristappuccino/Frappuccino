@@ -67,7 +67,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RienBijl/GreenBeans.git",
-                "reference": "bfcd535e468973f884cd097fc83bde94661b605c"
+                "reference": "4f8381036f19b8254a801ca0711f49e7695c7ada"
             },
             "type": "library",
             "autoload": {
@@ -85,7 +85,7 @@
                 }
             ],
             "description": "Kernel and Utility for Frappuccino in the GreenBeans namespace",
-            "time": "2020-01-07T14:11:12+00:00"
+            "time": "2020-01-07T18:32:46+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
