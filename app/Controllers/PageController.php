@@ -6,7 +6,6 @@ namespace App\Controllers;
  * Class PageController
  * @package App\Controllers
  * @Prefix page
- * @Middleware Authentication
  */
 class PageController
 {
@@ -20,7 +19,6 @@ class PageController
 
     /**
      * @Route POST /info
-     * @Middleware !CSRF Administrator
      */
     public function info()
     {

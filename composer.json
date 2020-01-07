@@ -9,17 +9,23 @@
             "email": "helloitsrien@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "url": "https://github.com/RienBijl/GreenBeans.git",
+            "type": "git"
+        }
+    ],
     "require": {
-        "vlucas/phpdotenv": "^4.0"
+        "vlucas/phpdotenv": "^4.0",
+        "rien/green-beans": "dev-master"
     },
     "require-dev": {
-      "squizlabs/php_codesniffer": "^3.5",
+        "squizlabs/php_codesniffer": "^3.5",
         "phpunit/phpunit": "^8"
     },
     "autoload" : {
         "psr-4": {
-            "App\\": "app/",
-            "Kernel\\": "kernel/"
+            "App\\": "app/"
         }
     },
     "minimum-stability": "dev",
