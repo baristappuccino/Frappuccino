@@ -32,5 +32,10 @@
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php beans genkey"
+        ]
     }
 }
