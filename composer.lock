@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13276211915f11669a0c60c36c586a65",
+    "content-hash": "fe916256ce8ab6b30dbc3445f4b5c96d",
     "packages": [
         {
             "name": "phpoption/phpoption",
@@ -66,8 +66,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RienBijl/GreenBeans.git",
-                "reference": "4f8381036f19b8254a801ca0711f49e7695c7ada"
+                "url": "https://github.com/baristappuccino/GreenBeans.git",
+                "reference": "e48b727613b0c58deea8812a441fd65b4cc4b36d"
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-openssl": "*"
             },
             "type": "library",
             "autoload": {
@@ -85,7 +89,7 @@
                 }
             ],
             "description": "Kernel and Utility for Frappuccino in the GreenBeans namespace",
-            "time": "2020-01-07T18:32:46+00:00"
+            "time": "2020-01-09T16:54:35+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -879,16 +883,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.1",
+            "version": "8.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7870c78da3c5e4883eaef36ae47853ebb3cb86f2"
+                "reference": "018b6ac3c8ab20916db85fa91bf6465acb64d1e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7870c78da3c5e4883eaef36ae47853ebb3cb86f2",
-                "reference": "7870c78da3c5e4883eaef36ae47853ebb3cb86f2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/018b6ac3c8ab20916db85fa91bf6465acb64d1e0",
+                "reference": "018b6ac3c8ab20916db85fa91bf6465acb64d1e0",
                 "shasum": ""
             },
             "require": {
@@ -958,7 +962,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-12-25T14:49:39+00:00"
+            "time": "2020-01-08T08:49:49+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

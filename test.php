@@ -1,4 +1,21 @@
 <?php
+require 'boot.php';
+
+use GreenBeans\Util\Encryption;
+
+$string = "Bier is lekker!";
+
+echo $string . "<br>";
+
+$encrypted = Encryption::encrypt($string);
+
+echo $encrypted . "<br>";
+
+$decrypted = Encryption::decrypt($encrypted);
+
+echo $decrypted;
+
+exit;
 
 require 'boot.php';
 

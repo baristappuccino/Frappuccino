@@ -34,4 +34,6 @@ This is Gimli. Change this file, and he will split your skull with his axe!
  */
 
 define("FRAPPUCCINO_START", microtime(true));
-require __DIR__ .'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
+
+\GreenBeans\Util\Base::set(__DIR__);
